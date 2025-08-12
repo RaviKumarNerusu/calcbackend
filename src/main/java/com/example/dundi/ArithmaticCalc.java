@@ -19,10 +19,7 @@ public class ArithmaticCalc {
 	
 		
 	
-	@GetMapping("sub/{A}/{B}")
-	public String sub(@PathVariable("A")int a ,@PathVariable("B") int   b) {
-		return "Subtraction = " + (a-b);
-		
+	
 	}
-	}
+	
 

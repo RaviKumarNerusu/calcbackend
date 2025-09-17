@@ -21,11 +21,11 @@ public class CicdBackend1Application extends SpringBootServletInitializer {
         return application.sources(CicdBackend1Application.class);
     }
 
-    // Fix for the Tomcat deployment error.
-    // This disables the duplicate registration of the ErrorPageFilter.
+    // Corrected bean definition for WAR deployment fix
     @Bean
-    public FilterRegistrationBean<ErrorPageFilter> errorPageFilterRegistration(ErrorPageFilter filter) {
-        FilterRegistrationBean<ErrorPageFilter> registration = new FilterRegistrationBean<>(filter);
+    public FilterRegistrationBean<ErrorPageFilter> errorPageFilterRegistration() {
+        // Create a new instance of the filter instead of expecting it to be autowired
+        FilterRegistrationBean<ErrorPageFilter> registration = new FilterRegistrationBean<>(new ErrorPageFilter());
         registration.setEnabled(false);
         return registration;
     }

@@ -8,12 +8,13 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 public class CicdBackend1Application extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CicdBackend1Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CicdBackend1Application.class, args);
+    }
 
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(CicdBackend1Application.class);
-	}
+    // Required for WAR deployment in external Tomcat
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(CicdBackend1Application.class);
+    }
 }
